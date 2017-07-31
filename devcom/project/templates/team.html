@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+<main>
+
+  <div class = "center-align">
+    <h4>Team Devcom</h4>
+  </div>
+  <div class="container">
+    <div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a class="active" href="#test1">2017</a></li>
+      <li class="tab col s3"><a  href="#test2">2018</a></li>
+
+    </ul>
+  </div>
+  <div id="test1" class="col s12">
+    <div class="row ">
+      <div class="z-depth-3 hoverable">
+      <div class="col s11 m4 l4">
+        <div class="card hoverable medium">
+          <div class="card-image waves-effect waves-block waves-light">
+            <div class="card-image">
+              <img src="https://pbs.twimg.com/profile_images/757763752410226688/vyG0FC5X.jpg"/></div>
+              <div class="card-title bold">
+                <h5>Sooraj P R</h5>
+              </div>
+
+            </div>
+            <div class="card-content">
+
+
+            <h6>Team lead</h6>
+            <p>
+              Chairman,IEEE Computer Society
+              College of Engineering Chengannur
+            </p>
+          </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s11 m4 l4">
+            <div class="card hoverable medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <div class="card-image">
+                  <img src="https://pbs.twimg.com/profile_images/757763752410226688/vyG0FC5X.jpg"/></div>
+                  <div class="card-title bold">
+                    <h5>Megha Nair</h5>
+                  </div>
+
+                </div>
+                <div class="card-content">
+
+
+                <h6>Devcom Coordinator</h6>
+                <p>
+
+                </p>
+              </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s11 m4 l4">
+                <div class="card hoverable medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <div class="card-image">
+                      <img src="https://pbs.twimg.com/profile_images/757763752410226688/vyG0FC5X.jpg"/></div>
+                      <div class="card-title bold">
+                        <h5>Adnan T Maqbool</h5></h5>
+                      </div>
+
+                    </div>
+                    <div class="card-content">
+
+
+                    <h6>Communication Coordinator</h6>
+                    <p>
+
+                    </p>
+                  </div>
+                  </div>
+                </div>
+      </div>
+    </div>
+
+</div>
+  </div>
+
+<div class="row">
+  {% for u in users%}
+  <div class="col s11 m3 l3">
+    <div class="card hoverable small activator">
+      <div class="card-image activator">
+        <img class="activator" src="https://pbs.twimg.com/profile_images/757763752410226688/vyG0FC5X.jpg"/>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">{{u.name}}<i class="material-icons right">close</i></span>
+        <a href="/user/profile/{{u.uid}}">visit my profile</a>
+      </div>
+      <i class="material-icons ">whatshot</i>
+      <p>
+        {{u.about}}
+      </p>
+
+    </div>
+  </div>
+{% endfor%}
+</div>
+
+</div>
+  <div id="test2" class="col s12">
+
+    <h3>get involved..... as the next batch is yet to be selected</h3>
+    <ul>
+      contact : soorajparakkattil@gmail.com
+    </ul>
+
+
+  </div>
+
+</div>
+
+  </div>
+
+</main>
+{% endblock %}

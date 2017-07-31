@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+<main>
+  <div class= "container col s11 m9 l9">
+    <div class = "card col s12 m12 l12">
+      <form class="col s12" action = " /blog/new/process" method="post">
+        {% csrf_token %}
+
+      <div class="row">
+        <div class = "card-content">
+
+          <div class="card-title">
+            <h4>eneter your post</h4>
+          </div>
+
+        <div class="input-field col s6">
+          <input placeholder="how i started learning android" name="title" id="first_name" type="text" class="validate">
+          <label for="first_name">Title</label>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea id="textarea1" name="content" placeholder="it was really helpful to learn android" class="materialize-textarea"></textarea>
+          <label for="textarea1">Blog Post</label>
+        </div>
+
+      </div>
+
+
+      <br />
+      <br />
+
+
+    </div>
+<div class="row">
+
+
+<div class="col m5 l5">
+</div>
+    <button class=" center-align  waves-effect waves-light btn" action="submit" >Post</button>
+</div>
+</div>
+  <br />
+  <br />
+    </form>
+    </div>
+  </div>
+</main>
+
+
+
+{% endblock %}
