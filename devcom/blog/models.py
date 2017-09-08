@@ -16,6 +16,7 @@ class Post(models.Model):
     topic=models.ForeignKey(Topic,on_delete=models.CASCADE,null=True)
     likes=models.IntegerField(default=0)
     comments=models.IntegerField(default=0)
+    cover=models.ImageField(upload_to="media/blog/cover",null=True)
 
     def __str__(self):
         return self.title

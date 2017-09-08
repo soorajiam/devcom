@@ -44,17 +44,10 @@ def newprocess(request):
     p.save()
     return redirect('/blog/me')
 
-def edit(request,pk):
-    try:
-        id = request.session['logid']
-    except Exception:
-        return render(request,'login.html',{'error' : 'Please Login to Continue'  })
-    usrs=User.objects.all().filter(uid=id)
-    for u in usrs:
-        a=0
-    posts=Post.objects.all().filter(postid=pk)
-    for p in posts:
-        a=0;
+class edit(UpdateView):
+    model=Post
+    fields=['title','topic','content','cover']
+    success_url='/blog/me'
 
 
 class PostDelete (DeleteView):

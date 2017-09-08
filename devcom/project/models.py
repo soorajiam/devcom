@@ -8,6 +8,7 @@ class Project(models.Model):
     github=models.CharField(max_length=200)
     mentor=models.ForeignKey(User,on_delete=models.CASCADE)
     desc=models.CharField(max_length=1000)
+    cover=models.ImageField(upload_to="media/blog/cover",null=True)
 
     def __str__(self):
         return self.projectname

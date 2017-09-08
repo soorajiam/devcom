@@ -2,9 +2,12 @@ from django.shortcuts import render,redirect
 from .models import User,Dp
 from blog.models import Post
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 
+def home(request):
+	return render(request, 'index.html' )
 def signup(request):
 	return render(request, 'signup.html' )
 
@@ -85,3 +88,17 @@ def profileview(request,pk):
 		a=0
 	posts=Post.objects.all().filter(uid=u)
 	return render(request,'profileview.html',{'u':u,'posts':posts})
+def profileedit(request):
+	try:
+		id = request.session['logid']
+	except Exception:
+		return render(request,'login.html',{'error' : 'Please Login to Continue'  })
+	usrs=User.objects.all().filter(uid=id)
+	for u in usrs:
+		a=0
+	return redirect('/user/profile/edit/verified/'+str(u.uid))
+
+class profEdit(UpdateView):
+	model=User
+	fields=['pic','cover','name','username','about','mobile','linkdin','github','college','clas','year']
+	success_url='/user/profile'

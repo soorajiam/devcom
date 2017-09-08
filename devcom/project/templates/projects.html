@@ -4,41 +4,53 @@
 <div class="container">
   <div class="row">
     <h4 class="center-align">Projects</h4>
+    <div class="col s5 l5 m5">
+
+    </div>
+  <a href="/team/projects/addnew" class="btn align-center">add new projects</a>
+    <div class=" row">
+
+
     {% for p in project %}
 
 
+
+
+
+
         <div class="col s12 m4 l4">
+          <div class="card blue-grey darken-1 small">
+            <div class="card-content white-text">
+              <span class="card-title white">{{p.topic.topicname}}</span>
+              <p class="row">
+                <span class="left"> Mentor: {{p.mentor.name}}</span>
+                <a class="right" href="https://{{p.github}}">github</a>
+              </p>
+              <span class="card-title activator grey-text text-darken-4">{{p.projectname}}</span>
+              <p class="row"></p><span class="right"></span></span></p><p>Team
 
-        <div class="card  hoverable">
-        <div class="card-image waves-effect waves-block waves-light">
 
+              {% for t in team %}
+              {% if t.project == p %}
+              <a href="/user/profile/{{t.user.uid}}/" >{{t.user.name}}  ,</a>
+              {% endif %}
+              {% endfor %}
+                </p>
+                <p>Tools used are:{{p.tools}}.</p>
+                <p>
+                  {{p.desc}}
+                </p>
+            </div>
+            <div class="card-action">
+              <a href="/team/projects/{{p.projectid}}">read more
+
+            </div>
+          </div>
         </div>
-        <div class="card-content">
-          <p class="row">
-            <span class="left"> Mentor: {{p.mentor.name}}</span>
-            <a class="right" href="https://{{p.github}}">github</a>
-          </p>
-          <span class="card-title activator grey-text text-darken-4">{{p.projectname}}<i class="material-icons right">more_vert</i></span>
-          <p class="row"><a href="/team/projects/{{p.projectid}}">read more</a></p><span class="right">{{p.topic.topicname}}</span></p><p>Team
-
-
-          {% for t in team %}
-          {% if t.project == p %}
-          <a href="/user/profile/{{t.user.uid}}/" >{{t.user.name}}  ,</a>
-          {% endif %}
-          {% endfor %}
-            </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{p.projectname}}<i class="material-icons right">close</i></span>
-          <p>Tools used are:{{p.tools}}.</p>
-        </div>
-      </div>
-
-    </div>
 
 
     {% endfor %}
+    </div>
   </div>
 
 </div>

@@ -13,10 +13,14 @@
     <div class="row">
   {%for p in posts %}
 
-    <div class="col s12 m6 l6">
+    <div class="col s12 m4 l4">
 
-    <div class="card  hoverable">
+    <div class="card  hoverable small ">
     <div class="card-image waves-effect waves-block waves-light">
+
+    </div>
+    <div class="card-image">
+      <img src="/media/{{p.cover}}" />
 
     </div>
     <div class="card-content">
@@ -24,7 +28,7 @@
         <span class="left">{{p.uid.name}}</span>
         <span class="right">{{p.date}}</span>
       </p>
-      <span class="card-title activator grey-text text-darken-4">{{p.title}}<i class="material-icons right">more_vert</i></span>
+      <span class="card-title activator grey-text text-darken-4 truncate">{{p.title}}<i class="material-icons right">more_vert</i></span>
       <p class="row"><a href="/blog/{{p.postid}}">read more</a></p><span class="right">{{p.topic.topicname}}</span></p>
     </div>
     <div class="card-reveal">
@@ -32,8 +36,8 @@
       <p>{{p.content}}.</p>
     </div>
   </div>
-
 </div>
+
 
 
   {% endfor %}
